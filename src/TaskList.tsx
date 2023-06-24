@@ -3,7 +3,7 @@ import { useFetch } from './custom-hook/useFetch'
 
 const url = `https://my-json-server.typicode.com/groupevaleco/tt-fake-todolist/tasks`
 
-interface TaskList 
+interface TaskItem 
 {
   id: number
   title: string
@@ -13,7 +13,7 @@ interface TaskList
 export default function TaskList() 
 {
 
-    const { data, error } = useFetch<TaskList[]>(url);
+    const { data, error } = useFetch<TaskItem[]>(url);
 
     if (error) {
         return (
@@ -28,6 +28,8 @@ export default function TaskList()
     }
 
     return (
-        <p>{data[0].id} - {data[0].title}</p>
+        data.map(
+            (task) => <p>{task.id} {task.title}</p> 
+        )
     )
 }
