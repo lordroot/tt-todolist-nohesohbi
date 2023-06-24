@@ -4,6 +4,7 @@ import { useFetch } from './custom-hook/useFetch'
 
 const url = `https://my-json-server.typicode.com/groupevaleco/tt-fake-todolist/tasks`
 
+// Interface for data retrieved from API
 interface TaskItem 
 {
   id: number
@@ -11,6 +12,7 @@ interface TaskItem
   completed: boolean
 }
 
+// Output each element from the todolist & handle status change
 function TaskItem({ task }: { task: TaskItem }) 
 {
   const [taskState, setTaskState] = useState<TaskItem>(task);
@@ -24,22 +26,15 @@ function TaskItem({ task }: { task: TaskItem })
 
   return (
     <div>
-      <input
-        type="checkbox"
-        id={taskState.id.toString()}
-        name={taskState.title}
-        checked={taskState.completed}
-        onChange={handleChange}
-      />
+      <input type="checkbox" id={taskState.id.toString()} name={taskState.title} checked={taskState.completed} onChange={handleChange}/>
       <label htmlFor={taskState.id.toString()}>{taskState.title}</label>
     </div>
   );
 }
 
-
+// Fetch tasks from the API & call TaskItem to display them.
 function TaskList() 
 {
-    //const [taskItem, setTaskItem] = useState<TaskItem[]>([]); // { id: 0, title: '', completed: false }
     const { data, error } = useFetch<TaskItem[]>(url);
 
     if (error) {
@@ -58,13 +53,14 @@ function TaskList()
         <>
             {
                 data.map(
-                    (task) => {return <TaskItem task={task}/>;}
+                    (task) => <TaskItem task={task}/>
                 )
             }
         </>
     )
 }
 
+//root function to display content
 function App() {
 
   return (
