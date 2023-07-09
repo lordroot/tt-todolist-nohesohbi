@@ -1,4 +1,3 @@
-import React, {useState, useEffect } from 'react';
 import './App.css';
 import TaskList from './TaskList';
 
@@ -10,8 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <fieldset>
-          <legend>All tasks to do :</legend>
-          
+          <legend>TODOLIST V2</legend>
           <TaskList />
         </fieldset>
       </header>

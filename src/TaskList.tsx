@@ -36,9 +36,11 @@ export default function TaskList() {
 
     return (
     <>
-        <ul>
+        <p>
+            Voici la liste des tâches a effectuer :
+        </p>
+        <ul id="taskWrap">
             {
-
                 task.map(
 
                     (task) => {

@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import TaskList from './TaskList'
 
 interface taskStruct
 {
@@ -12,7 +11,7 @@ interface taskStruct
 
 const TaskItem: React.FC<taskStruct> = ({ id, title, completed }) => {
 
-  const [taskState, setTaskState] = useState<boolean>(completed);
+  const [taskState, setTaskState] = useState<boolean>(completed)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
