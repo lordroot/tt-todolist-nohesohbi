@@ -11,7 +11,8 @@ function App() {
       <header className="App-header">
         <fieldset>
           <legend>All tasks to do :</legend>
-        <TaskList />
+          
+          <TaskList />
         </fieldset>
       </header>
     </div>
